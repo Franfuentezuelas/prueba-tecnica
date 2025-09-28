@@ -17,6 +17,9 @@ type HealthResponse = {
 export default function Home() {
   const [reloadCart, setReloadCart] = useState(false);
 
+  const pasos = ["inicio", "datos", "pago", "final"] as const;
+  type Paso = typeof pasos[number];
+  const [pasoActual, setPasoActual] = useState<Paso>("inicio");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -36,10 +39,11 @@ export default function Home() {
   if (loading) return <h1 className="cargando">Conectando con el servidor...</h1>;
 
   return (
+    
     <>
       <Header />
-      <Main setReloadCart={setReloadCart} />
-      <Cart reload={reloadCart} />
+      <Main setReloadCart={setReloadCart} pasoActual={pasoActual} />
+      <Cart reload={reloadCart} pasoActual={pasoActual} setPasoActual={setPasoActual} />
     </>
   );
 }

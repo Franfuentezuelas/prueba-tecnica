@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import styles from "./Cart.module.css";
-import { getRequest, postRequest, deleteRequest, putRequest } from "../../services/api";
+import { getRequest, deleteRequest, putRequest } from "../../services/api";
 
 type Product = {
   id: string;
@@ -27,23 +27,25 @@ const account = process.env.NEXT_PUBLIC_USER;
 const urlProduct = "products";
 const urlCartAcount = "cart?account="+account;
 
+const pasos = ["inicio", "datos", "pago", "final"] as const;
+export type Paso = typeof pasos[number];
+
 type CartProps = {
   reload: boolean;
+    pasoActual: Paso;
+  setPasoActual: React.Dispatch<React.SetStateAction<Paso>>;
 };
 
-export default function Cart({ reload }: CartProps) { 
+export default function Cart({ reload, pasoActual, setPasoActual }: CartProps) { 
     const [products, setProducts] = useState<Product[]>([]);
-    const [loading, setLoading] = useState(true);
     const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
     const pasos = ["inicio", "datos", "pago", "final"] as const;
     type Paso = typeof pasos[number]; 
-    const [pasoActual, setPasoActual] = useState<Paso>("inicio");
-
+    
     useEffect(() => {
         getRequest<Product[]>(urlProduct)
         .then((data) => {
             setProducts(data);
-            setLoading(false);
         })
         .catch((err) => {
             console.error(err);
@@ -51,7 +53,6 @@ export default function Cart({ reload }: CartProps) {
         getRequest<CartProduct[]>(urlCartAcount)    
         .then((data) => {
             setCartProducts(data);
-            setLoading(false);
         })
         .catch((err) => {
             console.error(err);
@@ -119,9 +120,14 @@ export default function Cart({ reload }: CartProps) {
         }
     };
 
+
     const handleContinuar = (number: number) => {
-        if (pasoActual === "final" && number === 1) return;
-        setPasoActual(prev => pasos[(pasos.indexOf(prev) + number) % pasos.length]);
+        const pasos = ["inicio", "datos", "pago", "final"] as const;
+        type Paso = typeof pasos[number];
+
+        const index = pasos.indexOf(pasoActual);
+        const nuevoIndex = Math.min(Math.max(index + number, 0), pasos.length - 1);
+        setPasoActual(pasos[nuevoIndex]);
     };
 
 if (cartProducts.length==0) return <aside className={styles.aside}><h2 className={styles.title}>Carrito</h2><p>No hay productos en el carrito</p></aside>;
@@ -129,9 +135,6 @@ if (cartProducts.length==0) return <aside className={styles.aside}><h2 className
 return (
     <aside className={styles.aside}>
   <h2 className={styles.title}>Carrito</h2>
-
-   
-
   <div className={styles.list}>
     {printCartProducts().map((cartProduct) => (
       <div key={cartProduct.id} className={styles.cartItem}>
@@ -187,9 +190,6 @@ return (
     disabled={pasoActual === "final"}
     onClick={() => handleContinuar(1)}>Siguiente</button>
   </div>
-  
-    
-
 </aside>
   );
 }

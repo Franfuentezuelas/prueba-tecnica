@@ -1,18 +1,21 @@
 import styles from "./Main.module.css";
-import ProductList from "../products/ProductList";
+import ProductList from "../products";
+import Formulario from "../formulario";
 
-type Product = {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
+type MainProps = {
+  setReloadCart: React.Dispatch<React.SetStateAction<boolean>>;
+  pasoActual: "inicio" | "datos" | "pago" | "final";
+
 };
 
-export default function Main( {setReloadCart}: {setReloadCart: React.Dispatch<React.SetStateAction<boolean>>}) {
+export default function Main({ setReloadCart, pasoActual }: MainProps) {
   return (
     <main className={styles.container}>
       <div className={styles.secondRow}>
-        <ProductList setReloadCart={setReloadCart} />
+        {pasoActual === "inicio" && <ProductList setReloadCart={setReloadCart} />}
+        {pasoActual === "datos" && <Formulario />}
+        {pasoActual === "pago" && <h2>Sección de Pago</h2>}
+        {pasoActual === "final" && <h2>Resumen final 🎉</h2>}
       </div>
     </main>
   );
