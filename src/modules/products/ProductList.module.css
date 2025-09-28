@@ -1,0 +1,77 @@
+.main {
+  height: 100%;        /* ocupa todo el espacio que le dio Home */
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  /* border: 1px solid black; */
+}
+
+.menu {
+  flex: 1;             /* ocupa el resto del espacio de main */
+  overflow-y: auto;    /* scroll SOLO aquí */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.botonAgregar {
+  background-color: #555;
+  border: none;
+  padding: 0.5rem 1em;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.Cargando {
+  text-align: center;
+  margin-top: 10%;
+  font-size: 3em;
+}
+
+.titulo {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.descripcion {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+
+.precio {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+    
+}
+
+.product {
+  display: flex;
+  justify-content: space-between; /* separa las columnas */
+  align-items: flex-start;
+  border-bottom: 1px solid yellow;
+  padding: 1rem;
+  gap: 1rem; /* espacio entre columnas */
+}
+
+.product img {
+  flex: 0 0 auto; /* ocupa solo el tamaño de la imagen */
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.product .detalle {
+  flex: 1; /* ocupa todo el espacio central */
+  display: flex;
+  flex-direction: column;
+}
+
+.product .acciones {
+  flex: 0 0 auto; /* columna derecha */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* precio y botón alineados a la derecha */
+  justify-content: space-between;
+  gap: 0.5rem;
+}

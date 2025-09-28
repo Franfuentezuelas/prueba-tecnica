@@ -1,0 +1,22 @@
+.aside {
+  width: 30%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  color: red;
+  padding: 1rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  margin: 0px;
+  /* overflow: hidden;     bloquea scroll global */
+}
+
+.list {
+  margin-top: 0.5rem;
+  list-style: none;
+  padding: 0;
+  overflow-y: auto;
+  height: 60%;
+}
+

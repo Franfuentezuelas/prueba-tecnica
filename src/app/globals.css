@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard {
+  height: 100vh;        /* pantalla completa */
+  overflow: hidden;     /* bloquea scroll global */
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  z-index: 10;
+}
+
+.body {
+  display: flex;
+  height: 90vh;          /* espacio restante bajo header */
+  margin-top: 5%;       /* para que no quede debajo del header si pongo 10 se baja demasiado*/
+}
+
+main {
+  flex: 0 0 70%;         /* 70% ancho */
+  height: 100%;
+  overflow-y: auto;      /* scroll solo aquí*/
+}
+
+aside {
+  flex: 0 0 30%;         /* 30% ancho */
+  position: fixed;            
+  right: 0;
+  height: 90%;           /* resto de la pantalla */
+  overflow-y: auto;      /* scroll solo aquí*/
+}
