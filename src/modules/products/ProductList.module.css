@@ -1,5 +1,5 @@
 .main {
-  height: 100%;        /* ocupa todo el espacio que le dio Home */
+  height: 70%;        /* ocupa todo el espacio que le dio Home */
   display: flex;
   flex-direction: column;
   padding: 1em;

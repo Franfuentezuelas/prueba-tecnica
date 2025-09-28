@@ -30,9 +30,11 @@ export async function putRequest<T>(endpoint: string, body: any): Promise<T> {
 }
 
 // DELETE
-export async function deleteRequest<T>(endpoint: string): Promise<T> {
+export async function deleteRequest<T>(endpoint: string, body: any): Promise<T> {
   const response = await fetch(`${BASE_URL}${endpoint}`, {
     method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
   });
   if (!response.ok) throw new Error("Error en la petición DELETE");
   return response.json();

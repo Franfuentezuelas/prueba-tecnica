@@ -1,15 +1,46 @@
-import Header from "../modules/header/Header";
+"use client";
+import { useState, useEffect } from "react";
+import Header from "../modules/header";
 import Main from "../modules/main/Main";
 import Cart from "../modules/cart/Cart";
+import { getRequest } from "../services/api";
+import { time, timeStamp } from "console";
+
+
+
+const health = "health";
+
+type HealthResponse = {
+  status: string;
+};
 
 export default function Home() {
+  const [reloadCart, setReloadCart] = useState(false);
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+      getRequest<HealthResponse>(health)
+        .then((data) => {
+          if (data.status === "ok") {
+            setLoading(false);
+          } else {
+            setLoading(true);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }, []);
+
+  if (loading) return <h1 className="cargando">Conectando con el servidor...</h1>;
+
   return (
-    <div className="dashboard">
+    <>
       <Header />
-      <div className="body">
-        <Main />
-        <Cart />
-      </div>
-    </div>
+      <Main setReloadCart={setReloadCart} />
+      <Cart reload={reloadCart} />
+    </>
   );
 }
+

@@ -60,3 +60,9 @@ aside {
   height: 90%;           /* resto de la pantalla */
   overflow-y: auto;      /* scroll solo aquí*/
 }
+
+.cargando {
+  text-align: center;
+  margin-top: 10%;
+  font-size: 3em;
+}

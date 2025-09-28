@@ -1,11 +1,18 @@
 import styles from "./Main.module.css";
 import ProductList from "../products/ProductList";
 
-export default function Main() {
+type Product = {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+};
+
+export default function Main( {setReloadCart}: {setReloadCart: React.Dispatch<React.SetStateAction<boolean>>}) {
   return (
     <main className={styles.container}>
       <div className={styles.secondRow}>
-        <ProductList />
+        <ProductList setReloadCart={setReloadCart} />
       </div>
     </main>
   );

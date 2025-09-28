@@ -1,8 +1,10 @@
 .container {
+  margin-top: 5%;
   display: flex;
   flex-direction: column; /* filas verticales */
   gap: 0rem;             /* espacio entre filas */
   padding: 0rem;
+  width: 70%;            /* ocupa todo el espacio que le dio Home */
   height: 95%;         /* opcional: ocupar toda la ventana */
   box-sizing: border-box;
 }
