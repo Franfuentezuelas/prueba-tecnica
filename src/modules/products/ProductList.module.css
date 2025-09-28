@@ -14,15 +14,6 @@
   margin: 0;
 }
 
-.botonAgregar {
-  background-color: #555;
-  border: none;
-  padding: 0.5rem 1em;
-  color: white;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
 .Cargando {
   text-align: center;
   margin-top: 10%;
@@ -41,15 +32,13 @@
 
 .precio {
   font-size: 1.5em;
-  margin-bottom: 0.5em;
-    
 }
 
 .product {
   display: flex;
   justify-content: space-between; /* separa las columnas */
   align-items: flex-start;
-  border-bottom: 1px solid yellow;
+  border-bottom: 1px solid grey;
   padding: 1rem;
   gap: 1rem; /* espacio entre columnas */
 }
@@ -74,4 +63,37 @@
   align-items: flex-end; /* precio y botón alineados a la derecha */
   justify-content: space-between;
   gap: 0.5rem;
+}
+
+.botonAgregar {
+  background-color: #555;
+  border: none;
+  padding: 0.5rem 1em;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease; /* suave transición */
+}
+
+.botonAgregar:hover {
+  background-color: #777; /* color al pasar el ratón */
+}
+
+.botonAgregar:active {
+  background-color: #333; /* color mientras se pulsa */
+}
+
+.cantidad {
+  width: 60px;            /* ancho del input */
+  padding: 0.25rem 0.5rem; /* espacio interno */
+  border: 1px solid #ccc;  /* borde gris */
+  border-radius: 4px;      /* esquinas redondeadas */
+  text-align: right;       /* número alineado a la derecha */
+  font-size: 1rem;
+  outline: none;           /* quita borde azul al enfocarlo (opcional) */
+}
+
+.cantidad:focus {
+  border-color: #555;      /* cambia color del borde al enfocar */
+  box-shadow: 0 0 2px #aaa;
 }

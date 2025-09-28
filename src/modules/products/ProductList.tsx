@@ -1,6 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
-import { getRequest } from "../../services/api";
+import { useState, useEffect, useRef } from "react";
+import { getRequest, postRequest } from "../../services/api";
 import styles from "./ProductList.module.css";
 
 type Product = {
@@ -10,11 +10,15 @@ type Product = {
   price: number;
 };
 
-const urlProduct = "/products";
+const account = process.env.NEXT_PUBLIC_USER;
+const urlProduct = "products";
+const urlCart = "cart";
+
 
 export default function ProductList() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const [qty, setQty] = useState(1);
 
   useEffect(() => {
     getRequest<Product[]>(urlProduct)
@@ -24,9 +28,24 @@ export default function ProductList() {
       })
       .catch((err) => {
         console.error(err);
-        setLoading(false);
       });
   }, []);
+
+  const addToCart = (productId: string) => {
+    
+
+    postRequest<Product>(urlCart, {
+      account: account,
+      product: productId,
+      qty: qty
+    })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   if (loading && products.length===0) return <h1 className={styles.Cargando}>Cargando productos...</h1>;
 
@@ -44,7 +63,8 @@ export default function ProductList() {
 
                 <div className={styles.acciones}>
                     <p className={styles.precio}>{product.price.toFixed(2)}€</p>
-                    <button className={styles.botonAgregar}>Añadir al carrito</button>
+                    <input type="number"min="1" max="99" defaultValue="1" className={styles.cantidad}  onChange={(e) => setQty(Number(e.target.value))} />
+                    <button className={styles.botonAgregar} onClick={() => addToCart(product.id)}>Añadir al carrito</button>
                 </div>
             </li>
         ))}
