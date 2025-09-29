@@ -1,0 +1,18 @@
+.finalizar {
+  position: fixed;      /* siempre fijo en pantalla */
+  top: 10%;             /* deja libre el 10% superior */
+  left: 0;
+  right: 0;
+  bottom: 0;            /* ocupa hasta abajo */
+  
+  /* margin: 5%; */
+
+  z-index: 1000;        /* encima de todo */
+  display: flex;
+  flex-direction: column; 
+  gap: 0.5rem;
+
+  /* background: rgba(255,255,255,0.7) ; semitransparente */
+  background: white ;
+  border: 1px solid #000;
+}

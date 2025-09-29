@@ -27,7 +27,7 @@ const account = process.env.NEXT_PUBLIC_USER;
 const urlProduct = "products";
 const urlCartAcount = "cart?account="+account;
 
-const pasos = ["inicio", "datos", "pago", "final"] as const;
+const pasos = ["inicio", "datos", "envio", "pago", "final"] as const;
 export type Paso = typeof pasos[number];
 
 type CartProps = {
@@ -39,8 +39,7 @@ type CartProps = {
 export default function Cart({ reload, pasoActual, setPasoActual }: CartProps) { 
     const [products, setProducts] = useState<Product[]>([]);
     const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
-    const pasos = ["inicio", "datos", "pago", "final"] as const;
-    type Paso = typeof pasos[number]; 
+
     
     useEffect(() => {
         getRequest<Product[]>(urlProduct)
@@ -122,7 +121,7 @@ export default function Cart({ reload, pasoActual, setPasoActual }: CartProps) {
 
 
     const handleContinuar = (number: number) => {
-        const pasos = ["inicio", "datos", "pago", "final"] as const;
+        const pasos = ["inicio", "datos", "envio", "pago", "final"] as const;
         type Paso = typeof pasos[number];
 
         const index = pasos.indexOf(pasoActual);
