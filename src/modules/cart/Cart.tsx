@@ -67,10 +67,6 @@ export default function Cart({ reload, pasoActual, setPasoActual, mainState }: C
       useEffect(() => {
     // Cuando finaliza la compra
     if (mainState.datosPago && pasoActual === "pago") {
-      console.log("Compra finalizada, ejecutar proceso de pago...");
-      // Aquí puedes ejecutar la función que complete la compra
-      // Por ejemplo, mostrar mensaje, enviar datos al backend, etc.
-      // Después de procesar, avanzar al paso final:
       setPasoActual("final");
     }
 
@@ -216,10 +212,6 @@ return (
       ||(pasoActual === "pago" && !mainState.datosPago)}
     onClick={() => handleContinuar(1)}>Siguiente</button>
   </div>
-  <p>¿Datos correctos datosForm? {mainState.datosForm ? "✅ Sí" : "❌ No"}</p>
-  <p>¿Datos correctos datosEnvio? {mainState.datosEnvio ? "✅ Sí" : "❌ No"}</p>
-  <p>¿Datos correctos datosPago? {mainState.datosPago ? "✅ Sí" : "❌ No"}</p>
-  <p>¿Datos correctos datosFinal? {mainState.datosFinal ? "✅ Sí" : "❌ No"}</p>
 </aside>
   );
 }

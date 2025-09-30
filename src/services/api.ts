@@ -14,7 +14,10 @@ export async function postRequest<T>(endpoint: string, body: any): Promise<T> {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
-  if (!response.ok) throw new Error("Error en la petición POST");
+   // Considera 200 y 201 como éxito
+  if (!response.ok && response.status !== 201) {
+    throw new Error(`Error en la petición POST: ${response.status}`);
+  }
   return response.json();
 }
 

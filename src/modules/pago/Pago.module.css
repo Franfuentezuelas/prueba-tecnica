@@ -1,160 +1,119 @@
-:root {
-  --colorAnterior: rgb(104, 104, 209);
-  --colorSiguiente: rgb(104, 209, 104);
-  --colorQuitar: rgb(209, 104, 104);
-  
-}
-
-.aside {
-  margin-top: 5%;
-  margin-right: 1%;
-  width: 28%;
-  height: 88vh;
+.container {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
-  border: 1px solid #000;
-  background-color: #f9f9f9;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
 }
 
-.title {
-  font-size: 2em;
-  margin-bottom: 0.5em;
+.titulo {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
-.list {
-  flex: 1;              /* ocupa el espacio disponible */
-  overflow-y: auto;     /* scroll solo aquí */
+.radioGroup {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.formWrapper {
+  width: 50%; /* tamaño fijo del formulario, puedes ajustar */
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.form {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 0;
-  margin: 0.5rem 0;
+  gap: 1rem;
 }
 
-.cartItem {
+.formItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.labelErrorRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
-  border-bottom: 1px solid #ccc;
-  gap: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
-.cartItem img {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  flex: 0 0 auto;
+.rowInputs {
+  display: flex;
+  gap: 1rem;
 }
 
-.detalle {
+.rowInputs .formItem {
   flex: 1;
-  display: flex;
-  flex-direction: column;
 }
 
-.acciones {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.25rem;
-}
-
-.cantidad {
-  width: 50px;
-  text-align: right;
+.input {
+  padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  padding: 0.2rem 0.4rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.botonSiguiente,
-.botonAnterior,
-.botonBorrar {
-  border: none;
-  border-radius: 4px;
-  padding: 0.3rem 0.6rem;
-  cursor: pointer;
-  color: white;
+.inputError {
+  border-color: red;
 }
 
-.botonAnterior,
-.botonSiguiente {
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
-  width: 40%;
+.error {
+  font-size: 0.85rem;
+  color: red;
+  visibility: hidden;
 }
 
-.botonSiguiente {
-  background-color: #4caf50;
+.error.visible {
+  visibility: visible;
 }
 
-.botonSiguiente:hover {
-  background-color: #45a049;
-}
-
-.botonSiguiente:active {
-  background-color: #3e8e41;
-}
-
-.botonAnterior {
-  background-color: #607d8b;  /* azul grisáceo principal */
-}
-
-.botonAnterior:hover {
-  background-color: #546e7a;  /* un poco más oscuro al hover */
-}
-
-.botonAnterior:active {
-  background-color: #455a64;  /* aún más oscuro al pulsar */
-}
-
-
-
-.botonBorrar {
-  background-color: #f44336;
-}
-
-.botonBorrar:hover {
-  background-color: #d32f2f;
-}
-
-.botonBorrar:active {
-  background-color: #b71c1c;
-}
-
-.botonBorrar:disabled {
-  background-color: #888;   /* color cuando está deshabilitado */
-  cursor: not-allowed;      /* cambia el cursor */
-  opacity: 0.6;             /* opcional: hacer más transparente */
-  pointer-events: none;     /* desactiva totalmente la interacción */
-}
-
-.total {
-  font-weight: bold;
-}
-
-.totalCarrito {
-  margin-top: auto;
-  font-size: 1.2em;
-  font-weight: bold;
-  text-align: right;
-}
-
-.botones {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.datosCorrectos {
   margin-top: 1rem;
+  font-weight: bold;
+  text-align: center;
 }
 
-.botonAnterior:disabled {
-  visibility: hidden;
-  cursor: default; 
+.botonSiguiente {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.botonSiguiente:disabled {
-  visibility: hidden;
-  cursor: default; 
+.botonPago {
+  background-color: #007bff; /* Azul principal */
+  color: white;
+  border: none;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.1s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.botonPago:disabled {
+  background-color: #cccccc; /* Gris cuando está deshabilitado */
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.botonPago:hover:not(:disabled) {
+  background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+}
+
+.botonPago:active:not(:disabled) {
+  background-color: #00408d; /* Azul aún más oscuro al pulsar */
+  transform: translateY(2px); /* Efecto de “presionado” */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+

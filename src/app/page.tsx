@@ -46,8 +46,19 @@ export default function Home() {
     
     <>
       <Header />
-      <Main setReloadCart={setReloadCart} pasoActual={pasoActual} setMainState={setMainState} />
-      <Cart reload={reloadCart} pasoActual={pasoActual} setPasoActual={setPasoActual} mainState={mainState}/>
+      <Main
+  setReloadCart={setReloadCart}
+  pasoActual={pasoActual}
+  setMainState={setMainState}
+  mainState={mainState}
+/>
+
+<Cart
+  reload={reloadCart}
+  pasoActual={pasoActual}
+  setPasoActual={setPasoActual}
+  mainState={mainState}
+/>
     </>
   );
 }
