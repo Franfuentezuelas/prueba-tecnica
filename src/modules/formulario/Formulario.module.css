@@ -1,3 +1,10 @@
+.titulo {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #333;       
+}
+
 .list {
   display: grid;
   grid-template-columns: 150px 1fr 200px; /* label - input - error */
@@ -33,4 +40,11 @@
 
 .error.visible {
   visibility: visible; /* se muestra si hay error */
+}
+
+.datosCorrectos {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  font-size: 1.2rem;
 }

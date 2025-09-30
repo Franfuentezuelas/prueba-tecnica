@@ -32,11 +32,17 @@ export type Paso = typeof pasos[number];
 
 type CartProps = {
   reload: boolean;
-    pasoActual: Paso;
+  pasoActual: Paso;
   setPasoActual: React.Dispatch<React.SetStateAction<Paso>>;
+  mainState: {
+    datosForm: boolean;
+    datosEnvio: boolean;
+    datosPago: boolean;
+    datosFinal: boolean;
+  };
 };
 
-export default function Cart({ reload, pasoActual, setPasoActual }: CartProps) { 
+export default function Cart({ reload, pasoActual, setPasoActual, mainState }: CartProps){ 
     const [products, setProducts] = useState<Product[]>([]);
     const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
 
@@ -57,6 +63,24 @@ export default function Cart({ reload, pasoActual, setPasoActual }: CartProps) {
             console.error(err);
         });
     }, [reload]);
+
+      useEffect(() => {
+    // Cuando finaliza la compra
+    if (mainState.datosPago && pasoActual === "pago") {
+      console.log("Compra finalizada, ejecutar proceso de pago...");
+      // Aquí puedes ejecutar la función que complete la compra
+      // Por ejemplo, mostrar mensaje, enviar datos al backend, etc.
+      // Después de procesar, avanzar al paso final:
+      setPasoActual("final");
+    }
+
+    // Cuando finaliza todo (datosFinal)
+    if (mainState.datosFinal && pasoActual === "final") {
+      console.log("Proceso finalizado, volver al inicio...");
+      // Reinicia el paso actual
+      setPasoActual("inicio");
+    }
+  }, [mainState, pasoActual, setPasoActual]);
 
 
     const printCartProducts = () => {
@@ -186,9 +210,17 @@ return (
     disabled={pasoActual === "inicio"}
     onClick={() => handleContinuar(-1)}>Anterior</button>
     <button className={styles.botonSiguiente} 
-    disabled={pasoActual === "final"}
+    disabled={pasoActual === "final" 
+      ||(pasoActual === "datos" && !mainState.datosForm)
+      ||(pasoActual === "envio" && !mainState.datosEnvio)
+      ||(pasoActual === "pago" && !mainState.datosPago)}
     onClick={() => handleContinuar(1)}>Siguiente</button>
   </div>
+  <p>¿Datos correctos datosForm? {mainState.datosForm ? "✅ Sí" : "❌ No"}</p>
+  <p>¿Datos correctos datosEnvio? {mainState.datosEnvio ? "✅ Sí" : "❌ No"}</p>
+  <p>¿Datos correctos datosPago? {mainState.datosPago ? "✅ Sí" : "❌ No"}</p>
+  <p>¿Datos correctos datosFinal? {mainState.datosFinal ? "✅ Sí" : "❌ No"}</p>
 </aside>
   );
 }
+    

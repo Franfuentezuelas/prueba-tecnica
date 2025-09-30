@@ -2,7 +2,18 @@ import { useState } from "react";
 import styles from "./Envio.module.css";
 import { buscarCiudad } from "../../services/ciudad";
 
-export default function Envio() { 
+type EnvioProps = {
+  setDatosEnvio: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export default function Envio({ setDatosEnvio }: EnvioProps) {
+  // aquí validas tu formulario de envío
+  const handleValidarEnvio = () => {
+    const valido = true; // tu lógica real aquí
+    setDatosEnvio(valido);
+  };
+
+ 
   const [disabledCheckbox, setDisabled] = useState(false);
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,6 +79,10 @@ export default function Envio() {
           />
         </div>
       </form>
+          <div>
+      <h2>Datos de Envío</h2>
+      <button onClick={handleValidarEnvio}>Validar envío</button>
+    </div>
     </div>
   );
 }

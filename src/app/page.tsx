@@ -4,8 +4,6 @@ import Header from "../modules/header";
 import Main from "../modules/main/Main";
 import Cart from "../modules/cart/Cart";
 import { getRequest } from "../services/api";
-import { time, timeStamp } from "console";
-
 
 
 const health = "health";
@@ -16,8 +14,14 @@ type HealthResponse = {
 
 export default function Home() {
   const [reloadCart, setReloadCart] = useState(false);
+   const [mainState, setMainState] = useState({
+    datosForm: false,
+    datosEnvio: false,
+    datosPago: false,
+    datosFinal: false,
+  });
 
-  const pasos = ["inicio", "datos", "pago", "final"] as const;
+  const pasos = ["inicio", "datos", "envio", "pago", "final"] as const;
   type Paso = typeof pasos[number];
   const [pasoActual, setPasoActual] = useState<Paso>("inicio");
   const [loading, setLoading] = useState(true);
@@ -42,8 +46,8 @@ export default function Home() {
     
     <>
       <Header />
-      <Main setReloadCart={setReloadCart} pasoActual={pasoActual} />
-      <Cart reload={reloadCart} pasoActual={pasoActual} setPasoActual={setPasoActual} />
+      <Main setReloadCart={setReloadCart} pasoActual={pasoActual} setMainState={setMainState} />
+      <Cart reload={reloadCart} pasoActual={pasoActual} setPasoActual={setPasoActual} mainState={mainState}/>
     </>
   );
 }
