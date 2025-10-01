@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { useState, useEffect } from "react";
 import styles from "./Formulario.module.css";
 import { buscarCiudad } from "../../services/ciudad";
