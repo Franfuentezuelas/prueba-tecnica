@@ -1,4 +1,3 @@
-# prueba-tecnica
 # Prueba Técnica
 
 En este proyecto he desarrollado una aplicacion web para la parte de front utilizando **Next.js**, **React 19** y **TypeScript**.  
