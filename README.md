@@ -7,6 +7,26 @@ Las pruebas unitarias se realizan con Vitest, ejecutables mediante interfaz inte
 
 ---
 
+## Descripción funcional
+
+La aplicación consume una API (configurable por variables de entorno) para gestionar un carro de la compra. El objetivo es permitir al usuario explorar productos, añadirlos al carrito, ajustar cantidades, eliminarlos y completar la compra a través de un flujo por multiples etapas en las que se solicitan datos personales, datos de envío y datos de pago.
+Finalmente se muestra un resumen del pedido con la información detallada de la compra realizada.
+
+### Características clave
+- **Listado de productos**: se obtienen desde la API y se muestran en la interfaz.
+- **Carro de la compra**: se actualiza con la Api y se muestra en la interfaz para mantener el estado actual del carrito. Permite:
+  - Añadir productos.
+  - Incrementar/decrementar cantidades.
+  - Eliminar artículos del carrito.
+  - **Cálculo del total en tiempo real**: el importe total se recalcula automáticamente al cambiar cantidades o contenidos del carrito.
+- **Flujo de compra por etapas**: las tres primeras etapas tiene las correspondientes validaciones en los campos y no permite continizar la compra si no se cumplen los requisitos que tiene cada uno de los campos obligatorios.
+  1. **Datos personales**.
+  2. **Datos de envío**.
+  3. **Datos de pago**.
+  4. **Resumen final del pedido** con la información de la compra realizada.
+
+
+
 ## Tecnologías utilizadas
 
 - [Next.js](https://nextjs.org/)  
