@@ -2,23 +2,23 @@
   margin-top: 5%;
   display: flex;
   flex-direction: column; /* filas verticales */
-  gap: 0rem;             /* espacio entre filas */
+  gap: 0rem; /* espacio entre filas */
   padding: 0rem;
-  width: 70%;            /* ocupa todo el espacio que le dio Home */
-  height: 95%;         /* opcional: ocupar toda la ventana */
+  width: 70%; /* ocupa todo el espacio que le dio Home */
+  height: 95%; /* opcional: ocupar toda la ventana */
   box-sizing: border-box;
 }
 
 .secondRow {
   display: flex;
-  flex-direction: row;      /* elementos lado a lado */
-  gap: 0px;                /* espacio entre ProductList y Cart */
+  flex-direction: row; /* elementos lado a lado */
+  gap: 0px; /* espacio entre ProductList y Cart */
 }
 
 .secondRow > :first-child {
-  flex: 7;                  /* 70% del espacio */
+  flex: 7; /* 70% del espacio */
 }
 
 .secondRow > :last-child {
-  flex: 3;                  /* 30% del espacio */
+  flex: 3; /* 30% del espacio */
 }

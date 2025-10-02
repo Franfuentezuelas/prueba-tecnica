@@ -1,5 +1,5 @@
 .main {
-  height: 70%;        /* ocupa todo el espacio que le dio Home */
+  height: 70%; /* ocupa todo el espacio que le dio Home */
   display: flex;
   flex-direction: column;
   padding: 1em;
@@ -7,8 +7,8 @@
 }
 
 .menu {
-  flex: 1;             /* ocupa el resto del espacio de main */
-  overflow-y: auto;    /* scroll SOLO aquí */
+  flex: 1; /* ocupa el resto del espacio de main */
+  overflow-y: auto; /* scroll SOLO aquí */
   list-style: none;
   padding: 0;
   margin: 0;
@@ -84,16 +84,16 @@
 }
 
 .cantidad {
-  width: 60px;            /* ancho del input */
+  width: 60px; /* ancho del input */
   padding: 0.25rem 0.5rem; /* espacio interno */
-  border: 1px solid #ccc;  /* borde gris */
-  border-radius: 4px;      /* esquinas redondeadas */
-  text-align: right;       /* número alineado a la derecha */
+  border: 1px solid #ccc; /* borde gris */
+  border-radius: 4px; /* esquinas redondeadas */
+  text-align: right; /* número alineado a la derecha */
   font-size: 1rem;
-  outline: none;           /* quita borde azul al enfocarlo (opcional) */
+  outline: none; /* quita borde azul al enfocarlo (opcional) */
 }
 
 .cantidad:focus {
-  border-color: #555;      /* cambia color del borde al enfocar */
+  border-color: #555; /* cambia color del borde al enfocar */
   box-shadow: 0 0 2px #aaa;
 }

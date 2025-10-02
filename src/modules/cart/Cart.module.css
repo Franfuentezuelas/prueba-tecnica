@@ -2,7 +2,6 @@
   --colorAnterior: rgb(104, 104, 209);
   --colorSiguiente: rgb(104, 209, 104);
   --colorQuitar: rgb(209, 104, 104);
-  
 }
 
 .aside {
@@ -23,8 +22,8 @@
 }
 
 .list {
-  flex: 1;              /* ocupa el espacio disponible */
-  overflow-y: auto;     /* scroll solo aquí */
+  flex: 1; /* ocupa el espacio disponible */
+  overflow-y: auto; /* scroll solo aquí */
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -99,18 +98,16 @@
 }
 
 .botonAnterior {
-  background-color: #607d8b;  /* azul grisáceo principal */
+  background-color: #607d8b; /* azul grisáceo principal */
 }
 
 .botonAnterior:hover {
-  background-color: #546e7a;  /* un poco más oscuro al hover */
+  background-color: #546e7a; /* un poco más oscuro al hover */
 }
 
 .botonAnterior:active {
-  background-color: #455a64;  /* aún más oscuro al pulsar */
+  background-color: #455a64; /* aún más oscuro al pulsar */
 }
-
-
 
 .botonBorrar {
   background-color: #f44336;
@@ -125,10 +122,10 @@
 }
 
 .botonBorrar:disabled {
-  background-color: #888;   /* color cuando está deshabilitado */
-  cursor: not-allowed;      /* cambia el cursor */
-  opacity: 0.6;             /* opcional: hacer más transparente */
-  pointer-events: none;     /* desactiva totalmente la interacción */
+  background-color: #888; /* color cuando está deshabilitado */
+  cursor: not-allowed; /* cambia el cursor */
+  opacity: 0.6; /* opcional: hacer más transparente */
+  pointer-events: none; /* desactiva totalmente la interacción */
 }
 
 .total {
@@ -151,10 +148,10 @@
 
 .botonAnterior:disabled {
   visibility: hidden;
-  cursor: default; 
+  cursor: default;
 }
 
 .botonSiguiente:disabled {
   visibility: hidden;
-  cursor: default; 
+  cursor: default;
 }

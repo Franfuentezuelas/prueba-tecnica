@@ -1,5 +1,5 @@
-import styles from "./Header.module.css";
-import React from "react";
+import styles from './Header.module.css'
+import React from 'react'
 
 export default function Header() {
   return (
@@ -7,5 +7,5 @@ export default function Header() {
       <h1>Mi Página de Prueba Tecnica</h1>
       <img src="/logo.png" alt="logo" className={styles.imagen} />
     </header>
-  );
+  )
 }

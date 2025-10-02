@@ -1,1 +1,1 @@
-export { default } from "./Formulario";
+export { default } from './Formulario'

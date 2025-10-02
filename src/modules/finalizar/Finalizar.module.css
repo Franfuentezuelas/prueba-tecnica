@@ -58,7 +58,9 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
 }
 
 .botonCerrar:hover {
@@ -85,7 +87,8 @@
   z-index: 1001; /* un poco más arriba que el container */
 }
 
-.loading, .error {
+.loading,
+.error {
   text-align: center;
   font-size: 1.2rem;
   margin-top: 2rem;

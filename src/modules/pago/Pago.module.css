@@ -97,7 +97,10 @@
   font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s, box-shadow 0.1s;
+  transition:
+    background-color 0.2s,
+    transform 0.1s,
+    box-shadow 0.1s;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -116,4 +119,3 @@
   transform: translateY(2px); /* Efecto de “presionado” */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-

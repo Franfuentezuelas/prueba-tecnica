@@ -1,9 +1,8 @@
 const config = {
-  plugins: ["@tailwindcss/postcss"],
-};
+  plugins: ['@tailwindcss/postcss'],
+}
 
-export default config;
-
+export default config
 
 // const isTest = process.env.NODE_ENV === 'test';
 
@@ -20,4 +19,3 @@ export default config;
 // }
 
 // export default config;
-

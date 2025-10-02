@@ -1,1 +1,1 @@
-export { default } from "./Pago";
+export { default } from './Pago'

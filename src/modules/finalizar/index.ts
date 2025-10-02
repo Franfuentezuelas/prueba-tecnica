@@ -1,1 +1,1 @@
-export { default } from "./Finalizar";
+export { default } from './Finalizar'
