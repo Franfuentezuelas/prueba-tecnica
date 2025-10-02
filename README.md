@@ -1,9 +1,9 @@
 # Prueba Técnica
 
-En este proyecto he desarrollado una aplicación web para el **frontend** utilizando **Next.js**, **React 19** y **TypeScript**.  
-He utilizado los hooks principales de React como **useState** y **useEffect** para la gestión de estado y efectos secundarios.  
-He implementado los estilos mediante **CSS Modules**, aplicados en el código con la sintaxis `className={style.nombre}`.  
-Las pruebas unitarias se realizan con **Vitest**, ejecutables mediante interfaz interactiva con `npx vitest --ui`.
+En esta prueba he desarrollado un proyecto de aplicación web intentando adaptarme a las necesidades del proyecto en la parte de front utilizando Next.js, React 19 y TypeScript.
+He utilizado los hooks principales de React como useState y useEffect para la gestión de estado y efectos secundarios.  
+He implementado los estilos mediante CSS Modules, aplicados en el código con la sintaxis `className={style.nombre}`.  
+Las pruebas unitarias se realizan con Vitest, ejecutables mediante interfaz interactiva con `npx vitest --ui`.
 
 ---
 
