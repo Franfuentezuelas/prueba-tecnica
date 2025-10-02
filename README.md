@@ -1,8 +1,8 @@
 # Prueba Técnica
 
-En este proyecto he desarrollado una aplicacion web para la parte de front utilizando **Next.js**, **React 19** y **TypeScript**.  
-He utilizado los hooks principales de React como **useState** y **useEffect** para la gestión de estado y efectos secundarios.
-He implementado los estilos mediante **CSS Modules**, aplicados en el código con la sintaxis `className={style.nombre}`.
+En este proyecto he desarrollado una aplicación web para el **frontend** utilizando **Next.js**, **React 19** y **TypeScript**.  
+He utilizado los hooks principales de React como **useState** y **useEffect** para la gestión de estado y efectos secundarios.  
+He implementado los estilos mediante **CSS Modules**, aplicados en el código con la sintaxis `className={style.nombre}`.  
 Las pruebas unitarias se realizan con **Vitest**, ejecutables mediante interfaz interactiva con `npx vitest --ui`.
 
 ---
@@ -99,7 +99,7 @@ El proyecto utiliza un archivo `.env.local` para configurar la URL base de la AP
 Ejemplo:
 
 ```env
-NEXT_PUBLIC_API_URL=https://api.ejemplo.com
+NEXT_PUBLIC_API_BASE_URL=https://api.ejemplo.com
 NEXT_PUBLIC_USER=acc1
 ```
 
@@ -109,8 +109,7 @@ Se accede en el código a través de `process.env.NEXT_PUBLIC_API_BASE_URL` y
 ---
 
 ## Estilos con CSS Modules
-
-En el proyecto los estilos los he implementan con **CSS Modules**.  
+En el proyecto los estilos los he implementado con **CSS Modules**.
 Esto significa que cada archivo `.module.css` define clases que son importadas como un objeto JavaScript y usadas en los componentes.  
 
 Ejemplo:
@@ -201,7 +200,8 @@ export default function Productos() {
 
 ## Testing
 
-He configurado **Vitest** para la ejecución de pruebas unitarias, en este caso por la incompatibilidad de css-modules con Vitest he mockeado el estilo en los tests para permitir la ejecución correcta de las pruebas.
+He configurado **Vitest** para la ejecución de pruebas unitarias.  
+En este caso, debido a la incompatibilidad de la versión del módulo utilizado con Vitest, he mockeado los estilos en los tests para permitir su correcta ejecución.
 
 ### Ejecutar pruebas con interfaz gráfica
 ```bash
