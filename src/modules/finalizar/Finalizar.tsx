@@ -51,7 +51,7 @@ export default function Finalizar({ setDatosFinal }: FinalizarProps) {
 
   const handleCerrar = () => {
 
-    window.location.href = "/"; // redirige a home
+    window.location.href = "/"; // recargo la pagina y se reinicia todo
   };
 
   if (procesando) {

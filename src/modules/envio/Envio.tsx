@@ -33,14 +33,13 @@ export default function Envio({ setDatosEnvio }: EnvioProps) {
 
     setErrores(nuevosErrores);
 
-    const todoCorrecto =
-      mismaDireccionLocal || Object.values(nuevosErrores).every((e) => e === "");
+    const todoCorrecto = mismaDireccionLocal || Object.values(nuevosErrores).every((e) => e === "");
 
     setDatosCorrectosLocal(todoCorrecto);
     setDatosEnvio(todoCorrecto);
   };
 
-  // Revalidar cada vez que cambie el form o el checkbox
+  // Ejecutar validación cada vez que cambie el form o el checkbox
   useEffect(() => {
     validarCampos(form, mismaDireccion);
   }, [form, mismaDireccion]);

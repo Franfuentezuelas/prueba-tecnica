@@ -75,8 +75,6 @@ export default function Cart({
 
     // Cuando finaliza todo (datosFinal)
     if (mainState.datosFinal && pasoActual === "final") {
-      console.log("Proceso finalizado, volver al inicio...");
-      // Reinicia el paso actual
       setPasoActual("inicio");
     }
   }, [mainState, pasoActual, setPasoActual]);
@@ -99,7 +97,7 @@ export default function Cart({
     return cartProductsPrint;
   };
 
-  // 🔹 Nueva función para calcular el total
+  // Función para calcular el total
   const calcularTotal = (): number => {
     return printCartProducts().reduce(
       (total, cartProduct) => total + cartProduct.qty * cartProduct.price,

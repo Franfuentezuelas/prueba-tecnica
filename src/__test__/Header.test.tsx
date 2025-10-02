@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { vi } from 'vitest';
 
-// ✅ Mock del CSS con exportación por defecto
+// Mock del CSS con exportación por defecto
 vi.mock('../modules/header/Header.module.css', () => ({
   default: {},
 }));

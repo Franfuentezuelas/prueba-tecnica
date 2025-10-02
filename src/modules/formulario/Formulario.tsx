@@ -29,13 +29,13 @@ export default function Formulario({ setDatosCorrectos }: { setDatosCorrectos: (
           setForm((prev) => ({ ...prev, ciudad }));
         }
       } else if (form.codigoPostal.length !== 5 && form.ciudad !== "") {
-        // Limpiar ciudad si código postal inválido
+        // Limpiar ciudad si el código postal es inválido
         setForm((prev) => ({ ...prev, ciudad: "" }));
       }
     };
 
     fetchCiudad();
-  }, [form.codigoPostal]); // <- solo depende de código postal
+  }, [form.codigoPostal]); // solo depende de código postal
 
   // Validación de todos los campos cada vez que cambie el form
   useEffect(() => {
